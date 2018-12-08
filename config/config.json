@@ -2,7 +2,14 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "photojenia",
+    "database": "photojenia_db",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "local": {
+    "username": "root",
+    "password": "root",
+    "database": "photojenia_db",
     "host": "localhost",
     "dialect": "mysql"
   },
