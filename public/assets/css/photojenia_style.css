@@ -1,20 +1,59 @@
-/* .list-group-item {
-    line-height: 2.5;
-  } */
-  @media (max-width:639px) {
 body {
   background-color: rgb(54, 48, 48);
+  color: white;
 }
+
+/* @media (max-width:639px) {
+
+} */
+
+@media (max-width: 767px) {
+  .navButton {
+    display: none;
   }
 
-  @media (min-width: 640px) {
-
+  #topnav {
+    display: flex;
+    background-color: rgb(54, 48, 48);
+    border-bottom: white 3px solid;
+    margin-left: 
   }
 
-  @media (min-width: 768px) {
-
+  #title {
+    color: white;
+    font-size: 30px;
   }
 
-  @media (min-width: 980px) {
-
+  #profilePicture {
+    display: none;
   }
+}
+
+@media (min-width: 768px) {
+  #topnav {
+    display: flex;
+    background-color: rgb(54, 48, 48);
+    border-bottom: white 3px solid;
+  }
+
+  #title {
+    color: white;
+    font-size: 30px;
+  }
+
+  .navButton {
+    height: 30px;
+    width: 50px;
+    margin-right: 35px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  #profilePicture {
+    height: 30px;
+    width: 50px;
+    margin-left: 20px;
+  }
+}
+
+@media (min-width: 980px) {}
