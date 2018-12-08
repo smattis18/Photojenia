@@ -1,2 +1,8 @@
-// Giphy api key
-// FiDaJGdZm9CCACzTDlexL1LjaBfu4j9o
+module.exports = function(sequelize, DataTypes) {
+    var Example = sequelize.define("Example", {
+      text: DataTypes.STRING,
+      description: DataTypes.TEXT
+    });
+    return Example;
+  };
+  
