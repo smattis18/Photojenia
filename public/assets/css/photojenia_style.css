@@ -1,3 +1,21 @@
-.list-group-item {
+/* .list-group-item {
     line-height: 2.5;
+  } */
+#topnav {
+  display: none
+}
+@media (max-width:639px) {
+  body {
+    background-color: rgb(54, 48, 48);
   }
+}
+
+@media (min-width: 640px) {}
+
+@media (min-width: 768px) {
+  #topnav {
+    display: block;
+  }
+}
+
+@media (min-width: 980px) {}
