@@ -30,8 +30,7 @@ CREATE TABLE `comment` (
 );
 
 CREATE TABLE `friend` (
-  `id` Int AUTO_INCREMENT NOT NULL,
   `user_id` Int NOT NULL,
-  `friend_id` Int NOT NULL,
+  `friend_id` Int NOT NULL
   PRIMARY KEY ( `id` ) 
 );
