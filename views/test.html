@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #spotify-player {
+            margin-left: 40%;
+            margin-right: 40%;
+        }
+        #search-function {
+            margin-left: 40%;
+            margin-right: 40%;
+        }
+        .gifs {
+            margin-left: 40%;
+            margin-right: 40%;
+        }
+    </style>
+</head>
+<body>
+    <div id="spotify-player">
+    <iframe src="https://open.spotify.com/embed/user/topsifyportugal/playlist/7MfbRlurIyu78Pw7JjYOiY" 
+    width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
+    <hr>
+    <div id="search-function">
+    <input type="text" id="giphy-search" placeholder="Search for a gif!">
+    <button id="search-button">Search</button>
+    </div>
+    <br>
+    <div id="gifs-appear-here"></div>
+
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+  <script>
+    // var search = $("#giphy-search").val()
+    // var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=FiDaJGdZm9CCACzTDlexL1LjaBfu4j9o&limit=10";
+
+      $("#search-button").on("click", function() {
+        event.preventDefault()
+        $("#gifs-appear-here").empty()
+        var search = $("#giphy-search").val()
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=FiDaJGdZm9CCACzTDlexL1LjaBfu4j9o&limit=3"
+        console.log(queryURL)
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function(response) {
+            console.log("---------------------------")
+            console.log(response)
+            var results = response.data
+            for (var i = 0; i < results.length; i++) {
+                var gifDiv = $("<div>")
+                var gifImage = $("<img>")
+                gifImage.attr("src", results[i].images.fixed_height.url);
+                gifDiv.append(gifImage)
+                $("#gifs-appear-here").prepend(gifDiv) 
+                gifDiv.addClass("gifs")
+            }
+            var btn = $("<button></button>").text("Post")
+            $(".gifs").on("click", function() {
+            alert("this worked!")
+            })
+        })
+    })
+  </script>
+</body>
+</html>
