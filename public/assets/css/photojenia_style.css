@@ -6,7 +6,12 @@ body {
 /* @media (max-width:639px) {
 
 } */
-
+#profile-picture {
+  width: 100px;
+  height: 100px;
+  background-color: gray;
+  display: inline;
+}
 @media (max-width: 767px) {
   .navButton {
     display: none;
