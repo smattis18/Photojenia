@@ -11,6 +11,14 @@ footer {
   background-color: rgb(54, 48, 48);
 }
 
+.fa-cog {
+  color: white;
+}
+
+button {
+  
+}
+
 #profile-picture {
   background-color: gray;
   display: inline;
