@@ -15,14 +15,26 @@ module.exports = function(sequelize, DataTypes) {
     email: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      field: 'beginTime',
+      defaultValue: sequelize.literal('NOW()')
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      field: 'nextTime',
+      defaultValue: sequelize.literal('NOW()')
     }
   });
 
   User.associate = function(models) {
+    // Associating Author with Posts
+    // When an Author is deleted, also delete any associated Posts
     User.hasMany(models.Post, {
       onDelete: "cascade"
     });
-  }
+  };
 
   return User;
 };

@@ -1,9 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
     var Post = sequelize.define("Post", {
-      user_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-        },
       post_header: {
         type: DataTypes.STRING,
         allowNull: false
@@ -12,6 +8,16 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.TEXT,
         allowNull: false
       },
+      createdAt: {
+        type: DataTypes.DATE,
+        field: 'beginTime',
+        defaultValue: sequelize.literal('NOW()')
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        field: 'nextTime',
+        defaultValue: sequelize.literal('NOW()')
+      }
     });
 
     Post.associate = function(models) {

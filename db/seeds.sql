@@ -11,21 +11,21 @@ INSERT INTO users (screen_name, first_name, last_name, email)
 VALUES ("kneve327", "kiara", "perez", "kiara@example.com");
 
 
-INSERT INTO posts (user_id, post_header, post_body)
-VALUES (1, "Introduction", "Greetings to all!");
+INSERT INTO posts (post_header, post_body, UserId)
+VALUES ("Introduction", "Greetings to all!", 1);
 
-INSERT INTO posts (user_id, post_header, post_body)
-VALUES (2, "Hello", "Just wanted to say hello!");
+INSERT INTO posts (post_header, post_body, UserId)
+VALUES ("Hello", "Just wanted to say hello!", 2);
 
-INSERT INTO posts (user_id, post_header, post_body)
-VALUES (3, "Project 2", "BAAAAAABEEE SNAAAAAAAAKES!");
+INSERT INTO posts (post_header, post_body, UserId)
+VALUES ("Project 2", "BAAAAAABEEE SNAAAAAAAAKES!", 3);
 
 
-INSERT INTO comments (post_id, comment_body)
-VALUES (1, "check");
+INSERT INTO comments (comment_body, PostID)
+VALUES ("check", 1);
 
-INSERT INTO comments (post_id, comment_body)
-VALUES (2, "check2");
+INSERT INTO comments (comment_body, PostID)
+VALUES ("check2", 2);
 
-INSERT INTO comments (post_id, comment_body)
-VALUES (3, "check3");
+INSERT INTO comments (comment_body, PostID)
+VALUES ("check3", 3);
