@@ -1,41 +1,24 @@
 var db = require("../../models");
 
-module.exports = function (app) {
-    // Get all examples
-    app.get("/api/user", function (req, res) {
-      db.User.findAll({}).then(function (users) {
-        res.json(users);
-      });
+module.exports = function(app) {
+  // Get all examples
+  app.get("/api/examples", function(req, res) {
+    db.Example.findAll({}).then(function(dbExamples) {
+      res.json(dbExamples);
     });
+  });
 
-    app.get("/api/user/:id", function (req, res) {
-      db.User.findOne({where: { id:req.params.id}}).then(function (user) {
-        res.json(user);
-      });
+  // Create a new example
+  app.post("/api/examples", function(req, res) {
+    db.Example.create(req.body).then(function(dbExample) {
+      res.json(dbExample);
     });
+  });
 
-
-    // :id = user_id
-    app.post("/api/post/:id", function (req, res) {
-      db.Post.create({}).then(function (new_post) {
-        res.json(new_post);
-      });
+  // Delete an example by id
+  app.delete("/api/examples/:id", function(req, res) {
+    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
+      res.json(dbExample);
     });
-
-    // // comment
-    // app.post("/api/comment/:id", function(req, res) {
-    //   db.Comment.create({}).then(function(new_comment) {
-    //     res.json(new_comment);
-    //   });
-    // });
-
-
-
-
-    //   // Delete an example by id
-    //   app.delete("/api/examples/:id", function(req, res) {
-    //     db.Post.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-    //       res.json(dbExample);
-    //     });
-    //   });
-    };
+  });
+};
